@@ -1,0 +1,96 @@
+body {
+    font-family: 'Roboto', sans-serif; /* You can keep this if you want to use the Roboto font */
+    /* Remove/comment out the following lines */
+    /* margin: 0;
+       background-color: #f5f5f5; */
+}
+
+/* Remove/comment out the following lines - Bootstrap's Navbar and other components take care of styling the header */
+/* header {
+  background-color: #3c79f3;
+  color: white;
+  padding: 20px;
+  text-align: center;
+} */
+
+h1 {
+    font-size: 32px;
+    margin: 0;
+}
+
+p {
+    font-size: 18px;
+    margin: 10px 0 20px;
+}
+
+#word-cloud-container {
+    height: 80vh;
+    margin: 35px 0;
+    background-color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+#word-cloud-container::after {
+    content: 'Word cloud will be displayed here.';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #9e9e9e;
+    z-index: -1; /* Add this rule */
+}
+
+.container {
+    /* Remove or comment out the following lines */
+    /* width: 90%;
+    margin: 0 auto;
+    padding: 20px; */
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #3c79f3;
+}
+
+#search-results {
+    list-style-type: none;
+    padding: 0;
+}
+
+#bookmark-detail {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-result-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.search-result {
+    border-bottom: 1px solid #eeeeee;
+    padding: 15px 0;
+}
+
+.search-result h3 {
+    margin: 0;
+}
+
+.search-result h3 a {
+    font-size: 20px;
+    color: #1a0dab;
+}
+
+.search-result p {
+    color: #006621;
+}
+
+#searchForm {
+    margin-left: auto;
+}
+
+h1 {
+    text-align: center;
+}

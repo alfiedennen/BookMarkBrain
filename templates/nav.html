@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container justify-content-between">
+        <a class="navbar-brand" href="/">BookMark Brain</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav"> <!-- Add 'justify-content-center' here -->
+          <ul class="navbar-nav mr-auto"> <!-- Add 'mr-auto' here -->
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/wordcloud">Word Cloud</a>
+            </li>
+          </ul>
+            <form id="searchForm" class="d-lg-inline-flex" action="/search">
+                <input id="search" name="keyword" type="text" placeholder="Search your bookmarks" />
+                <button type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/wordcloud">Word Cloud</a>
+            </li>
+          </ul>
+        </div>
+    </div>
+</nav>
