@@ -66,3 +66,4 @@ ENV/
 # Custom files to exclude
 _export_all_relevant_files.py
 filestructure.py
+_all_files_contents.txt
