@@ -91,8 +91,7 @@ Now visit `http://127.0.0.1:5000` in your web browser to access BookMark Brain.
 
 ## Contribution
 
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](link-to-issues) to raise any bug or submit a feature request.
-
+Contributions, issues, and feature requests are welcome!
 ## License
 
 This project is licensed under the MIT License – see the [LICENSE](LICENSE) file for details.

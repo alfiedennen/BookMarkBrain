@@ -13,8 +13,8 @@ def tokenize_and_stem(text):
     stemmed_tokens = [stemmer.stem(token) for token in tokens]
     return set(stemmed_tokens)
 
-# Load the preprocessed_topics_keywords.json at the start of the application
-with open('preprocessed_topics_keywords.json', 'r', encoding='utf8') as f:
+# Load the final_bookmark_data.json at the start of the application
+with open('final_bookmark_data.json', 'r', encoding='utf8') as f:
     data = json.load(f)
 df = pd.DataFrame(data)
 
@@ -35,15 +35,15 @@ def get_word_frequency():
     # Convert the Series to dictionary before returning the result
     return word_frequencies.to_dict()
 
-def process_keywords_topics(row, keywords):
-    return any(keyword_stem in (set(row["content_tokens"]).union(row["topics_tokens"]).union(row["keywords_tokens"]))
+def process_keywords(row, keywords):
+    return any(keyword_stem in (set(row["content_tokens"]).union(row["keywords_tokens"]))
                 for keyword_stem in keywords)
 
 @app.route('/api/search', methods=['GET'])
 def search():
     keyword_string = request.args.get('keyword', '').lower()
     keywords = tokenize_and_stem(keyword_string)
-    result_df = df[df.apply(lambda row: process_keywords_topics(row, keywords), axis=1)]
+    result_df = df[df.apply(lambda row: process_keywords(row, keywords), axis=1)]
     result = result_df.to_dict('records')
     return jsonify(result)
 

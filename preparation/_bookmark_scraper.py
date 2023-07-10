@@ -24,6 +24,10 @@ def save_urls_to_file(urls, filename):
         for url in urls:
             f.write(url + "\n")
 
-file_path = 'D:\\Visual Studio Code Projects\\Bookmarks_Project\\Bookmarks.json'
-urls = extract_urls_from_bookmarks(file_path)
-save_urls_to_file(urls, 'bookmarks_urls.txt')
+def main():
+    file_path = 'D:\\Visual Studio Code Projects\\BOOKMARKBRAIN\\Bookmarks.json'
+    urls = extract_urls_from_bookmarks(file_path)
+    save_urls_to_file(urls, 'bookmarks_urls.txt')
+
+if __name__ == "__main__":
+    main()

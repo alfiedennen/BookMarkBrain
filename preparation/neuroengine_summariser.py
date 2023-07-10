@@ -1,17 +1,25 @@
 import json
 import time
 import os
-from neuroengine import Neuroengine
+import openai
 
-# Set up the service name
-service_name = 'Neuroengine-Large'
-api = Neuroengine(service_name=service_name)
+# Set up your GPT-3.5 Turbo API key
+openai.api_key = "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"
 
 def summarize(content):
-    # send the content to the LLM with instructions to summarise it
-    prompt = f"{content[:3950]} Please summarize the above text."
-    return api.request(prompt, temperature=0.4, top_p=0.9, max_new_len=1000)
+    conversation = [
+        {"role": "system", "content": "You are a helpful assistant that summarizes text succintly and never prefaces a summarization."},
+        {"role": "user", "content": f"Please summarize the following text. Only summarize the text and do not preface your summarization in any way. For example you never say: The text is about... and only summarize the content.\n\n{content[:3950]}"}
+    ]
 
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=conversation,
+        temperature=0.4,
+        max_tokens=1000
+    )
+
+    return response.choices[0].message.content.strip()
 
 def load_processed_records(filename):
     if os.path.exists(filename):
@@ -73,4 +81,8 @@ def process_file(filename, processed_records_file, output_filename='summarised.j
         else:
             print(f"Failed to process record: {record['url']}. Continuing with next record.")
 
-process_file('scraped_pages.json', 'processed_records.txt')
+def main(input_filename='scraped_pages.json', processed_records_filename='processed_records.txt', output_filename='summarised.json'):
+    process_file(input_filename, processed_records_filename, output_filename)
+
+if __name__ == "__main__":
+    main()

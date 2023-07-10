@@ -4,3 +4,5 @@ nltk==3.6.5
 pandas==1.3.5
 Flask==2.1.1
 WordCloud==1.8.1
+torch
+transformers
